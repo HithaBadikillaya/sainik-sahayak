@@ -7,7 +7,7 @@ const Register = () => {
     name: '',
     email: '',
     password: '',
-    role: 'family', // default role, can be 'officer' or 'admin' too
+    role: 'family',
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -28,67 +28,131 @@ const Register = () => {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: 400 }}>
-      <h2 className="mb-4">Register</h2>
-      {error && <div className="alert alert-danger">{error}</div>}
+    <div style={{
+      backgroundColor: '#e0e4c4', // same light army green
+      minHeight: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '20px',
+    }}>
+      <div
+        style={{
+          backgroundColor: '#f7f8ef',
+          padding: '30px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+          width: '100%',
+          maxWidth: '400px',
+          border: '1px solid #c2c5aa'
+        }}
+      >
+        <h2 style={{
+          textAlign: 'center',
+          color: '#4d5e3c',
+          marginBottom: '20px',
+          borderBottom: '2px solid #aab78d',
+          paddingBottom: '10px'
+        }}>Register</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Name</label>
-          <input
-            name="name"
-            type="text"
-            className="form-control"
-            required
-            value={form.name}
-            onChange={handleChange}
-          />
-        </div>
+        {error && <div className="alert alert-danger">{error}</div>}
 
-        <div className="mb-3">
-          <label>Email address</label>
-          <input
-            name="email"
-            type="email"
-            className="form-control"
-            required
-            value={form.email}
-            onChange={handleChange}
-          />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label style={{ color: '#4d5e3c', fontWeight: 'bold' }}>Name</label>
+            <input
+              name="name"
+              type="text"
+              className="form-control"
+              required
+              value={form.name}
+              onChange={handleChange}
+              style={{
+                border: '2px solid #aab78d',
+                borderRadius: '6px',
+                padding: '10px',
+                marginTop: '5px'
+              }}
+            />
+          </div>
 
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            name="password"
-            type="password"
-            className="form-control"
-            required
-            value={form.password}
-            onChange={handleChange}
-          />
-        </div>
+          <div className="mb-3">
+            <label style={{ color: '#4d5e3c', fontWeight: 'bold' }}>Email address</label>
+            <input
+              name="email"
+              type="email"
+              className="form-control"
+              required
+              value={form.email}
+              onChange={handleChange}
+              style={{
+                border: '2px solid #aab78d',
+                borderRadius: '6px',
+                padding: '10px',
+                marginTop: '5px'
+              }}
+            />
+          </div>
 
-        <div className="mb-3">
-          <label>Role</label>
-          <select
-            name="role"
-            className="form-select"
-            value={form.role}
-            onChange={handleChange}
+          <div className="mb-3">
+            <label style={{ color: '#4d5e3c', fontWeight: 'bold' }}>Password</label>
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              required
+              value={form.password}
+              onChange={handleChange}
+              style={{
+                border: '2px solid #aab78d',
+                borderRadius: '6px',
+                padding: '10px',
+                marginTop: '5px'
+              }}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label style={{ color: '#4d5e3c', fontWeight: 'bold' }}>Role</label>
+            <select
+              name="role"
+              className="form-select"
+              value={form.role}
+              onChange={handleChange}
+              style={{
+                border: '2px solid #aab78d',
+                borderRadius: '6px',
+                padding: '10px',
+                marginTop: '5px'
+              }}
+            >
+              <option value="family">Family Member</option>
+              <option value="officer">Officer</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="btn w-100"
+            style={{
+              backgroundColor: '#6b8e23',
+              color: 'white',
+              border: 'none',
+              padding: '10px',
+              fontWeight: 'bold',
+              borderRadius: '6px',
+              marginTop: '10px'
+            }}
           >
-            <option value="family">Family Member</option>
-            <option value="officer">Officer</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
+            Register
+          </button>
+        </form>
 
-        <button type="submit" className="btn btn-success w-100">Register</button>
-      </form>
-
-      <p className="mt-3">
-        Already have an account? <Link to="/login">Login here</Link>
-      </p>
+        <p className="mt-3 text-center" style={{ color: '#4d5e3c' }}>
+          Already have an account? <Link to="/login" style={{ color: '#3d4f2d' }}>Login here</Link>
+        </p>
+      </div>
     </div>
   );
 };
